@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Sesión 1: ¡Plan de Ataque Digital! – Del Concepto al Código Scratch</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .header { background-color: #ffa500; color: white; text-align: center; padding: 10px; } /* Orange Accent */
+        .activity { margin-bottom: 20px; }
+        .banner {
+            background-color: #ffa500; /* Orange Accent */
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+            /* Remove default list styling if any */
+            list-style: none;
+            /* Ensure it behaves like a block */
+            display: block;
+        }
+        .content { display: none; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            vertical-align: top;
+        }
+        span[style*="color: red;"] { /* Keep this style if needed elsewhere, though not used in this specific context */
+            font-weight: bold;
+        }
+         ul, ol {
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .time-title { margin-bottom: 20px; text-align: center; font-size: 1.2em; color: #555;} /* Style for static title */
+
+        /* Styling summary to remove default marker if needed */
+        summary {
+           display: block;
+           list-style: none; /* Hide default marker */
+        }
+        summary::-webkit-details-marker {
+           display: none; /* Hide default marker in Webkit */
+        }
+
+    </style>
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            if (content) {
+                // Toggle display style
+                if (content.style.display === "none" || content.style.display === "") {
+                    content.style.display = "block";
+                } else {
+                    content.style.display = "none";
+                }
+            }
+        }
+
+        // Initialize content hidden state on load
+        window.onload = () => {
+             // Ensure all content starts hidden
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+        };
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Playbook - Sesión 1: ¡Plan de Ataque Digital! – Del Concepto al Código Scratch</h1>
+    </div>
+    <div class="container">
+        <h2 class="time-title">Tiempo efectivo de clase: 40 minutos</h2>
+
+        <!-- Resumen de Sesión -->
+        <div id="activity-0" class="activity">
+            <!-- Use div with onclick instead of details/summary -->
+            <div class="banner" onclick="toggleContent('activity_0_content')">
+                <div class="title">📝 Resumen de Sesión</div>
+            </div>
+            <div id="activity_0_content" class="content">
+                <table>
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid #ddd;">
+                            <strong>🎯 Objetivo de la Sesión:</strong>
+                            <ul>
+                                <li>Traducir el prototipo conceptual (T-Bar de Fase 2) a un plan técnico inicial usando un tablero Kanban.</li>
+                                <li>Definir el alcance del Prototipo Funcional Básico para las 4 sesiones de Prototipo Rápido.</li>
+                                <li>Asignar roles técnicos dentro de cada equipo.</li>
+                            </ul>
+                            <strong>⏱️ Duración Estimada:</strong> 40 minutos.
+                        </td>
+                        <td style="width: 50%; padding: 10px;">
+                            <strong>🔑 Entregable Clave:</strong>
+                            <ul>
+                                <li>Tablero Kanban del equipo iniciado (físico o digital).</li>
+                                <li>Lista de tareas iniciales (Backlog) en la columna "Por Hacer" del Kanban.</li>
+                                <li>Definición clara del Prototipo Funcional Básico anotada.</li>
+                                <li>Roles técnicos asignados para el inicio del prototipado.</li>
+                                <li>Primera tarea movida a la columna "Haciendo".</li>
+                            </ul>
+                             <strong>🛠️ Materiales/Preparación:</strong>
+                            <ul>
+                                <li>Proyector o pantalla.</li>
+                                <li>Acceso al T-Bar conceptual definido por cada equipo en la Fase 2.</li>
+                                <li>Tablero Kanban preparado para cada equipo (físico: pizarra/rotafolio con columnas; digital: Trello, Miro, etc.).</li>
+                                <li>Post-its o tarjetas y marcadores (si es físico).</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Desarrollo de la Sesión -->
+
+        <!-- Actividad 1: Recordatorio de Misión ODS -->
+        <div id="activity-1" class="activity">
+             <div class="banner" onclick="toggleContent('activity_1_content')">
+                <div class="title">🌍 Actividad 1: Recordatorio de Misión ODS ⏰ Tiempo: 5 minutos</div>
+             </div>
+            <div id="activity_1_content" class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Acción</th>
+                            <th style="width: 50%;">Diálogo del Maestro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Paso 1 (1 min):</strong> Saludar a los equipos y enfocar la atención en la nueva fase.
+                                (<strong>Proyectar Diapositiva 1:</strong> Título "¡Prototipo Rápido: Sesión 1!" y Objetivo de la sesión).
+                            </td>
+                            <td>
+                                "¡Hola, súper equipos creadores! ¡Bienvenidos a la Fase de Prototipo Rápido! 🚀 Hoy empezamos a construir de verdad nuestro Arte Interactivo ODS en Scratch. ¡Es hora de convertir esas ideas geniales en código!"
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Paso 2 (4 min):</strong> Pedir a cada equipo que tenga a mano su T-Bar de la Fase 2. Guiar una breve revisión del concepto.
+                                (<strong>Proyectar Diapositiva 2:</strong> Imagen genérica de un T-Bar o un icono representativo).
+                            </td>
+                            <td>
+                                "¿Recuerdan su increíble plan, su T-Bar? ¡Ese mapa secreto que crearon para su Arte Interactivo que ayuda al planeta! 🗺️ Sáquenlo, mírenlo bien... ¡Este es el plan que vamos a empezar a construir HOY!"
+                                <br><br>
+                                <em>(Dar 1-2 minutos para que localicen y revisen su T-Bar).</em>
+                                <br><br>
+                                "Perfecto. Ese T-Bar nos dice QUÉ queremos que haga nuestro proyecto. Ahora, en estas 4 sesiones, vamos a construir la parte MÁS IMPORTANTE, el corazón de esa idea, usando Scratch. ¿Listos para el desafío?"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividad 2: Introducción a Kanban y Roles -->
+        <div id="activity-2" class="activity">
+             <div class="banner" onclick="toggleContent('activity_2_content')">
+                 <div class="title">📋 Actividad 2: Introducción a Kanban y Roles ¡Modo Equipo! ⏰ Tiempo: 7 minutos</div>
+             </div>
+            <div id="activity_2_content" class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Acción</th>
+                            <th style="width: 50%;">Diálogo del Maestro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Paso 1 (3 min):</strong> Explicar qué es un tablero Kanban de forma visual y simple. Mostrar el tablero preparado (físico/digital) con 3 columnas: Por Hacer (💡), Haciendo (⚙️), ¡Listo! (✅).
+                                (<strong>Proyectar Diapositiva 3:</strong> Imagen clara del tablero Kanban con sus 3 columnas y emojis/iconos).
+                            </td>
+                            <td>
+                                "¡Para construir nuestro proyecto como profesionales, necesitamos una herramienta secreta! Se llama... ¡Kanban! Kanban es como un tablero mágico que nos ayuda a organizar nuestras tareas."
+                                <br><br>
+                                "Miren <em>(señalar el tablero)</em>. Tiene tres partes importantes:"
+                                <ul>
+                                    <li><strong>Por Hacer (💡):</strong> Aquí ponemos TOOOODAS las ideas y tareas que necesitamos hacer para nuestro proyecto. ¡Es nuestra lista de deseos!</li>
+                                    <li><strong>Haciendo (⚙️):</strong> Aquí movemos la tarea en la que estamos trabajando AHORA MISMO. ¡Solo una o dos cositas a la vez para concentrarnos!</li>
+                                    <li><strong>¡Listo! (✅):</strong> ¡Y aquí movemos las tareas cuando las hemos TERMINADO! ¡Es la columna de la celebración!</li>
+                                </ul>
+                                "Usar este tablero nos ayuda a ver qué falta, qué estamos haciendo y cuánto hemos avanzado. ¡Es súper útil!"
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Paso 2 (4 min):</strong> Presentar los roles técnicos para el prototipado rápido. Explicar brevemente cada uno y la posibilidad de rotar.
+                                (<strong>Proyectar Diapositiva 4:</strong> Iconos/Nombres de los 3 roles con descripción breve y simple).
+                            </td>
+                            <td>
+                                "¡Y como en todo gran equipo de constructores, cada uno tendrá un súper poder especial! Estos son nuestros roles para estas 4 sesiones:"
+                                <ul>
+                                    <li><strong>Arquitecto/a Digital (🧐):</strong> ¡Es el guardián del plan! Se asegura de que lo que construimos sigue la idea del T-Bar. ¡Tiene la visión general!</li>
+                                    <li><strong>Programador/a Scratch (💻🖱️):</strong> ¡Manos al código! Es quien usa Scratch para escribir los bloques y hacer que todo funcione. ¡Es el constructor principal!</li>
+                                    <li><strong>Tester Creativo/a (🎮✨):</strong> ¡El detective de la diversión y los errores! Prueba lo que hace el Programador/a, se asegura de que funcione como dice el Arquitecto/a y ¡que sea divertido! Busca 'bugs' (errores).</li>
+                                </ul>
+                                "Empezaremos asignando estos roles. ¡Pero atentos! Si quieren, pueden ir rotando en las próximas sesiones para probar diferentes súper poderes. ¡Lo importante es que trabajen juntos y se ayuden!"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividad 3: Definiendo Nuestra ¡Interacción Central! -->
+        <div id="activity-3" class="activity">
+            <div class="banner" onclick="toggleContent('activity_3_content')">
+                <div class="title">🎯 Actividad 3: Definiendo Nuestra ¡Interacción Central! (Alcance del Prototipo Básico) ⏰ Tiempo: 10 minutos</div>
+            </div>
+            <div id="activity_3_content" class="content">
+                 <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Acción</th>
+                            <th style="width: 50%;">Diálogo del Maestro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Paso 1 (3 min):</strong> Plantear la pregunta clave para definir el Prototipo Funcional Básico (PFB). Guiar la reflexión en equipo basada en su T-Bar.
+                                (<strong>Proyectar Diapositiva 5:</strong> Pregunta central "¿Cuál es la interacción MÁS importante?" y el ejemplo de la tortuga).
+                            </td>
+                            <td>
+                                "¡Equipos, miren de nuevo su T-Bar! Tiene muchas ideas geniales, ¿verdad? Pero en estas 4 sesiones de Prototipo Rápido, nos vamos a enfocar en construir LO MÁS IMPORTANTE, el corazón de su proyecto."
+                                <br><br>
+                                "Piensen juntos: De todo lo que imaginaron, ¿cuál es la acción o interacción <strong>MÁS</strong> importante? ¿Qué es lo mínimo que tiene que hacer su proyecto para que funcione y muestre su idea principal?"
+                                <br><br>
+                                "Por ejemplo, si su T-Bar era sobre una tortuga que enseña a cuidar el mar, quizás lo MÁS importante es que <strong>'Al hacer clic en la tortuga, diga ¡Cuidemos el mar!'</strong>. Eso sería su Prototipo Funcional Básico."
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Paso 2 (7 min):</strong> Dar tiempo a los equipos para discutir y definir SU Prototipo Funcional Básico. Pedirles que lo anoten claramente (en el T-Bar, en una hoja aparte, o en el Kanban). Circular y apoyar la definición.
+                            </td>
+                            <td>
+                                "Ahora, conversen en equipo. Tienen 7 minutos para decidir cuál será el 'corazón' de su proyecto, su <strong>Prototipo Funcional Básico</strong> para estas 4 sesiones."
+                                <br><br>
+                                "Pregúntense: ¿Qué tiene que pasar SÍ o SÍ? ¿Cuál es la primera interacción clave?"
+                                <br><br>
+                                "Cuando lo tengan claro, ¡anótenlo! Escriban esa frase mágica que describe lo que van a construir. Por ejemplo: 'El personaje principal se mueve con las flechas', 'Al tocar la flor, cambia de color', 'El contador suma puntos al atrapar basura'."
+                                <br><br>
+                                <em>(Circular, escuchar las discusiones, ayudar a simplificar si es necesario, asegurarse de que todos los equipos definan y anoten su PFB).</em>
+                                <br><br>
+                                "¿Listos? ¿Ya tienen definida la misión principal para su código Scratch?"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividad 4: Creando el Backlog de ¡Tareas Secretas! -->
+        <div id="activity-4" class="activity">
+            <div class="banner" onclick="toggleContent('activity_4_content')">
+                <div class="title">📝 Actividad 4: Creando el Backlog de ¡Tareas Secretas! ⏰ Tiempo: 13 minutos</div>
+            </div>
+            <div id="activity_4_content" class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Acción</th>
+                            <th style="width: 50%;">Diálogo del Maestro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Paso 1 (3 min):</strong> Explicar cómo descomponer el Prototipo Funcional Básico (PFB) definido en tareas pequeñas para Scratch. Usar el ejemplo de la tortuga.
+                                (<strong>Proyectar Diapositiva 6:</strong> Ejemplo de PFB 'Clic en tortuga dice ¡Cuidemos el mar!' descompuesto en tareas en post-its/tarjetas).
+                            </td>
+                            <td>
+                                "¡Genial! Ya saben QUÉ van a construir. Ahora, vamos a planificar CÓMO lo haremos en Scratch. Necesitamos romper esa gran misión (su PFB) en pedacitos más pequeños, ¡como si fueran piezas de LEGO!"
+                                <br><br>
+                                "Estos pedacitos se llaman 'tareas'. Piensen en todos los pasos que necesitan hacer en Scratch."
+                                <br><br>
+                                "Siguiendo el ejemplo de la tortuga: Si nuestro PFB es 'Al hacer clic en la tortuga, dice ¡Cuidemos el mar!', ¿qué tareas necesitamos hacer en Scratch?"
+                                <ul>
+                                    <li>¡Necesitamos crear el personaje de la tortuga! (Tarea 1: Crear personaje tortuga 🐢)</li>
+                                    <li>¡Necesitamos un fondo marino bonito! (Tarea 2: Crear fondo marino 🌊)</li>
+                                    <li>¡Necesitamos que la tortuga reaccione al clic! (Tarea 3: Programar clic en tortuga🖱️)</li>
+                                    <li>¡Y necesitamos que diga el mensaje! (Tarea 4: Programar mensaje '¡Cuidemos el mar!' 💬)</li>
+                                </ul>
+                                "¿Ven? ¡Son pasos pequeños y claros!"
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Paso 2 (10 min):</strong> Dar tiempo a los equipos para escribir sus tareas en post-its/tarjetas (o digitalmente) y colocarlas en la columna "Por Hacer (💡)" de su Kanban. Guiar para que las tareas sean específicas de Scratch. Circular y apoyar.
+                            </td>
+                            <td>
+                                "¡Ahora es su turno! Tomen su Prototipo Funcional Básico que definieron y piensen en todos los pasos pequeños que necesitan hacer en Scratch."
+                                <br><br>
+                                "Escriban cada paso en un post-it o tarjeta. ¡Sean específicos! Usen verbos como 'Crear', 'Programar', 'Añadir', 'Hacer que...'"
+                                <br><br>
+                                "Tienen 10 minutos para crear su lista de tareas secretas. Una vez que tengan una tarea escrita, ¡péguenla en la columna 'Por Hacer (💡)' de su tablero Kanban!"
+                                <br><br>
+                                "¡Esta será su guía para construir! ¡Manos a la obra, equipos!"
+                                <br><br>
+                                <em>(Circular activamente, ayudar a los equipos a descomponer su PFB. Revisar que las tareas sean accionables en Scratch. Animar a que generen varias tareas iniciales).</em>
+                                <br><br>
+                                "¡Recuerden, piensen en personajes, fondos, movimientos, sonidos, clics, mensajes... todo lo que necesitan programar!"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividad 5: ¡Equipo Listo! Asignación y Arranque -->
+        <div id="activity-5" class="activity">
+             <div class="banner" onclick="toggleContent('activity_5_content')">
+                 <div class="title">🚀 Actividad 5: ¡Equipo Listo! Asignación y Arranque ⏰ Tiempo: 5 minutos</div>
+             </div>
+            <div id="activity_5_content" class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Acción</th>
+                            <th style="width: 50%;">Diálogo del Maestro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Paso 1 (2 min):</strong> Pedir a los equipos que asignen los roles iniciales (Arquitecto/a, Programador/a, Tester).
+                                (<strong>Proyectar Diapositiva 7:</strong> Recordatorio visual de los 3 roles).
+                            </td>
+                            <td>
+                                "¡Equipos, su plan de ataque está casi listo! Tienen su misión (PFB) y sus tareas (Backlog en 'Por Hacer'). Ahora, ¡asignen sus súper poderes! Decidan quién será el/la Arquitecto/a Digital, quién el/la Programador/a Scratch y quién el/la Tester Creativo/a para empezar."
+                                <br><br>
+                                "¡Rápido, tienen 1 minuto para decidir!"
+                                <br><br>
+                                <em>(Dar tiempo para la asignación).</em>
+                                "¿Listos? ¿Todos tienen su rol?"
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <strong>Paso 2 (3 min):</strong> Guiar al Arquitecto/a Digital para que, con ayuda del equipo, elija la PRIMERA tarea del backlog. El Programador/a mueve esa tarea a la columna "Haciendo (⚙️)". Celebrar el inicio.
+                            </td>
+                            <td>
+                                "¡Perfecto! Ahora, Arquitectos/as Digitales, miren su columna 'Por Hacer'. Con la ayuda de su equipo, elijan <strong>UNA</strong> tarea para empezar. ¿Cuál es el primer paso lógico para construir su Prototipo Funcional Básico?"
+                                <br><br>
+                                <em>(Dar un momento para que decidan).</em>
+                                <br><br>
+                                "¿Ya la tienen? ¡Genial! Ahora, Programadores/as Scratch, tomen esa tarea (el post-it/tarjeta) y ¡muévanla a la columna 'Haciendo (⚙️)'!"
+                                <br><br>
+                                <em>(Verificar que todos los equipos muevan una tarea).</em>
+                                <br><br>
+                                "¡¡Felicidades, equipos!! ¡Han creado su plan de ataque digital y ya están oficialmente EN MARCHA! ¡Su primera tarea está 'Haciendo'!"
+                                <br><br>
+                                "En la próxima sesión, ¡nos pondremos manos al código para construir esa primera tarea! ¡Gran trabajo hoy planificando como verdaderos profesionales!"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div> <!-- Fin del container -->
+</body>
+</html>
