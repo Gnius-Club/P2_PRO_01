@@ -14,14 +14,23 @@
             color: white;
             padding: 10px;
             cursor: pointer;
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Adjusted from 0px for spacing when content is shown */
             font-weight: bold;
             /* Remove default list styling if any */
             list-style: none;
             /* Ensure it behaves like a block */
             display: block;
+            border-radius: 5px; /* Rounded corners for banner */
         }
-        .content { display: none; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
+        .content { 
+            display: none; 
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            margin-bottom: 10px; 
+            border-radius: 5px; /* Rounded corners for content */
+            margin-top: -10px; /* Overlap slightly with banner for visual connection */
+            padding-top: 20px; /* Add padding to top of content to avoid text clash */
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -32,7 +41,7 @@
             text-align: left;
             vertical-align: top;
         }
-        span[style*="color: red;"] { /* Keep this style if needed elsewhere, though not used in this specific context */
+        span[style*="color: red;"] { 
             font-weight: bold;
         }
          ul, ol {
@@ -43,16 +52,18 @@
         li {
             margin-bottom: 5px;
         }
-        .time-title { margin-bottom: 20px; text-align: center; font-size: 1.2em; color: #555;} /* Style for static title */
+        .time-title { margin-bottom: 20px; text-align: center; font-size: 1.2em; color: #555;}
 
-        /* Styling summary to remove default marker if needed */
-        summary {
-           display: block;
-           list-style: none; /* Hide default marker */
+        /* Making facilitator instructions clearer */
+        td em, td i { /* Style for italicized facilitator notes */
+            color: #555;
+            font-style: italic;
+            display: block; /* Put notes on new lines */
+            margin-top: 5px;
         }
-        summary::-webkit-details-marker {
-           display: none; /* Hide default marker in Webkit */
-        }
+        /* Ensure step <strong> tags render bold */
+        td strong { font-weight: bold; } /* General strong for keywords */
+        td > strong { display: block; margin-bottom: 5px; } /* For step headers */
 
     </style>
     <script>
@@ -75,6 +86,11 @@
             contents.forEach(content => {
                 content.style.display = 'none';
             });
+            // Open "Resumen de Sesión" by default if needed
+            const resumenContent = document.getElementById('activity_0_content');
+            if (resumenContent) {
+                resumenContent.style.display = 'block';
+            }
         };
     </script>
 </head>
@@ -87,11 +103,10 @@
 
         <!-- Resumen de Sesión -->
         <div id="activity-0" class="activity">
-            <!-- Use div with onclick instead of details/summary -->
             <div class="banner" onclick="toggleContent('activity_0_content')">
                 <div class="title">📝 Resumen de Sesión</div>
             </div>
-            <div id="activity_0_content" class="content">
+            <div id="activity_0_content" class="content" style="display: block;"> {/* Open by default */}
                 <table>
                     <tr>
                         <td style="width: 50%; padding: 10px; border-right: 1px solid #ddd;">
@@ -143,8 +158,11 @@
                     <tbody>
                         <tr>
                             <td>
-                                <strong>Paso 1 (1 min):</strong> Saludar a los equipos y enfocar la atención en la nueva fase.
-                                (<strong>Proyectar Diapositiva 1:</strong> Título "¡Prototipo Rápido: Sesión 1!" y Objetivo de la sesión).
+                                <strong>Paso 1 (1 min):</strong>
+                                <ul>
+                                    <li>Saludar a los equipos y enfocar la atención en la nueva fase.</li>
+                                    <li><strong>Proyectar Diapositiva 1</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Hola, súper equipos creadores! ¡Bienvenidos a la Fase de Prototipo Rápido! 🚀 Hoy empezamos a construir de verdad nuestro Arte Interactivo ODS en Scratch. ¡Es hora de convertir esas ideas geniales en código!"
@@ -152,8 +170,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <strong>Paso 2 (4 min):</strong> Pedir a cada equipo que tenga a mano su T-Bar de la Fase 2. Guiar una breve revisión del concepto.
-                                (<strong>Proyectar Diapositiva 2:</strong> Imagen genérica de un T-Bar o un icono representativo).
+                                <strong>Paso 2 (4 min):</strong>
+                                <ul>
+                                    <li>Pedir a cada equipo que tenga a mano su T-Bar de la Fase 2.</li>
+                                    <li>Guiar una breve revisión del concepto.</li>
+                                    <li><strong>Proyectar Diapositiva 2</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¿Recuerdan su increíble plan, su T-Bar? ¡Ese mapa secreto que crearon para su Arte Interactivo que ayuda al planeta! 🗺️ Sáquenlo, mírenlo bien... ¡Este es el plan que vamos a empezar a construir HOY!"
@@ -184,8 +206,12 @@
                     <tbody>
                         <tr>
                             <td>
-                                <strong>Paso 1 (3 min):</strong> Explicar qué es un tablero Kanban de forma visual y simple. Mostrar el tablero preparado (físico/digital) con 3 columnas: Por Hacer (💡), Haciendo (⚙️), ¡Listo! (✅).
-                                (<strong>Proyectar Diapositiva 3:</strong> Imagen clara del tablero Kanban con sus 3 columnas y emojis/iconos).
+                                <strong>Paso 1 (3 min):</strong>
+                                <ul>
+                                    <li>Explicar qué es un tablero Kanban de forma visual y simple.</li>
+                                    <li>Mostrar el tablero preparado (físico/digital) con 3 columnas: Por Hacer (💡), Haciendo (⚙️), ¡Listo! (✅).</li>
+                                    <li><strong>Proyectar Diapositiva 3</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Para construir nuestro proyecto como profesionales, necesitamos una herramienta secreta! Se llama... ¡Kanban! Kanban es como un tablero mágico que nos ayuda a organizar nuestras tareas."
@@ -201,8 +227,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <strong>Paso 2 (4 min):</strong> Presentar los roles técnicos para el prototipado rápido. Explicar brevemente cada uno y la posibilidad de rotar.
-                                (<strong>Proyectar Diapositiva 4:</strong> Iconos/Nombres de los 3 roles con descripción breve y simple).
+                                <strong>Paso 2 (4 min):</strong>
+                                <ul>
+                                    <li>Presentar los roles técnicos para el prototipado rápido.</li>
+                                    <li>Explicar brevemente cada uno y la posibilidad de rotar.</li>
+                                    <li><strong>Proyectar Diapositiva 4</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Y como en todo gran equipo de constructores, cada uno tendrá un súper poder especial! Estos son nuestros roles para estas 4 sesiones:"
@@ -235,8 +265,12 @@
                     <tbody>
                         <tr>
                             <td>
-                                <strong>Paso 1 (3 min):</strong> Plantear la pregunta clave para definir el Prototipo Funcional Básico (PFB). Guiar la reflexión en equipo basada en su T-Bar.
-                                (<strong>Proyectar Diapositiva 5:</strong> Pregunta central "¿Cuál es la interacción MÁS importante?" y el ejemplo de la tortuga).
+                                <strong>Paso 1 (3 min):</strong>
+                                <ul>
+                                    <li>Plantear la pregunta clave para definir el Prototipo Funcional Básico (PFB).</li>
+                                    <li>Guiar la reflexión en equipo basada en su T-Bar.</li>
+                                    <li><strong>Proyectar Diapositiva 5</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Equipos, miren de nuevo su T-Bar! Tiene muchas ideas geniales, ¿verdad? Pero en estas 4 sesiones de Prototipo Rápido, nos vamos a enfocar en construir LO MÁS IMPORTANTE, el corazón de su proyecto."
@@ -248,7 +282,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <strong>Paso 2 (7 min):</strong> Dar tiempo a los equipos para discutir y definir SU Prototipo Funcional Básico. Pedirles que lo anoten claramente (en el T-Bar, en una hoja aparte, o en el Kanban). Circular y apoyar la definición.
+                                <strong>Paso 2 (7 min):</strong>
+                                <ul>
+                                    <li>Dar tiempo a los equipos para discutir y definir SU Prototipo Funcional Básico.</li>
+                                    <li>Pedirles que lo anoten claramente.</li>
+                                    <li>Circular y apoyar la definición.</li>
+                                </ul>
                             </td>
                             <td>
                                 "Ahora, conversen en equipo. Tienen 7 minutos para decidir cuál será el 'corazón' de su proyecto, su <strong>Prototipo Funcional Básico</strong> para estas 4 sesiones."
@@ -283,8 +322,12 @@
                     <tbody>
                         <tr>
                             <td>
-                                <strong>Paso 1 (3 min):</strong> Explicar cómo descomponer el Prototipo Funcional Básico (PFB) definido en tareas pequeñas para Scratch. Usar el ejemplo de la tortuga.
-                                (<strong>Proyectar Diapositiva 6:</strong> Ejemplo de PFB 'Clic en tortuga dice ¡Cuidemos el mar!' descompuesto en tareas en post-its/tarjetas).
+                                <strong>Paso 1 (3 min):</strong>
+                                <ul>
+                                    <li>Explicar cómo descomponer el Prototipo Funcional Básico (PFB) definido en tareas pequeñas para Scratch.</li>
+                                    <li>Usar el ejemplo de la tortuga.</li>
+                                    <li><strong>Proyectar Diapositiva 6</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Genial! Ya saben QUÉ van a construir. Ahora, vamos a planificar CÓMO lo haremos en Scratch. Necesitamos romper esa gran misión (su PFB) en pedacitos más pequeños, ¡como si fueran piezas de LEGO!"
@@ -303,7 +346,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <strong>Paso 2 (10 min):</strong> Dar tiempo a los equipos para escribir sus tareas en post-its/tarjetas (o digitalmente) y colocarlas en la columna "Por Hacer (💡)" de su Kanban. Guiar para que las tareas sean específicas de Scratch. Circular y apoyar.
+                                <strong>Paso 2 (10 min):</strong>
+                                <ul>
+                                    <li>Dar tiempo a los equipos para escribir sus tareas en post-its/tarjetas (o digitalmente) y colocarlas en la columna "Por Hacer (💡)" de su Kanban.</li>
+                                    <li>Guiar para que las tareas sean específicas de Scratch.</li>
+                                    <li>Circular y apoyar.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Ahora es su turno! Tomen su Prototipo Funcional Básico que definieron y piensen en todos los pasos pequeños que necesitan hacer en Scratch."
@@ -340,8 +388,11 @@
                     <tbody>
                         <tr>
                             <td>
-                                <strong>Paso 1 (2 min):</strong> Pedir a los equipos que asignen los roles iniciales (Arquitecto/a, Programador/a, Tester).
-                                (<strong>Proyectar Diapositiva 7:</strong> Recordatorio visual de los 3 roles).
+                                <strong>Paso 1 (2 min):</strong>
+                                <ul>
+                                    <li>Pedir a los equipos que asignen los roles iniciales (Arquitecto/a, Programador/a, Tester).</li>
+                                    <li><strong>Proyectar Diapositiva 7</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Equipos, su plan de ataque está casi listo! Tienen su misión (PFB) y sus tareas (Backlog en 'Por Hacer'). Ahora, ¡asignen sus súper poderes! Decidan quién será el/la Arquitecto/a Digital, quién el/la Programador/a Scratch y quién el/la Tester Creativo/a para empezar."
@@ -354,7 +405,12 @@
                         </tr>
                          <tr>
                             <td>
-                                <strong>Paso 2 (3 min):</strong> Guiar al Arquitecto/a Digital para que, con ayuda del equipo, elija la PRIMERA tarea del backlog. El Programador/a mueve esa tarea a la columna "Haciendo (⚙️)". Celebrar el inicio.
+                                <strong>Paso 2 (3 min):</strong>
+                                <ul>
+                                    <li>Guiar al Arquitecto/a Digital para que, con ayuda del equipo, elija la PRIMERA tarea del backlog.</li>
+                                    <li>El Programador/a mueve esa tarea a la columna "Haciendo (⚙️)".</li>
+                                    <li>Celebrar el inicio.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Perfecto! Ahora, Arquitectos/as Digitales, miren su columna 'Por Hacer'. Con la ayuda de su equipo, elijan <strong>UNA</strong> tarea para empezar. ¿Cuál es el primer paso lógico para construir su Prototipo Funcional Básico?"
